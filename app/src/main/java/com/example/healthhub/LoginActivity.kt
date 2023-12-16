@@ -22,7 +22,7 @@ class LoginActivity : AppCompatActivity() {
 
         binding.loginButton.setOnClickListener {
             val email = binding.loginUser.text.toString()
-            val pass = binding.loginPass.text.toString()
+            val pass = binding.loginPass.editText?.text.toString()
 
             if (email.isNotEmpty() && pass.isNotEmpty()) {
 
