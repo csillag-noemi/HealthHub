@@ -62,7 +62,7 @@
 
         <Button
             android:id="@+id/buttonSignup"
-            android:layout_width="354dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:layout_marginStart="20dp"

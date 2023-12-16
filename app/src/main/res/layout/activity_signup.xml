@@ -23,18 +23,17 @@
         <EditText
             android:id="@+id/signupEmail"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="70dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
             android:background="@drawable/custom_edittext"
             android:drawablePadding="20dp"
-            android:hint="E-mail"
-            android:minHeight="48dp"
+            android:hint="@string/emailHint"
             android:padding="10dp"
             android:textColorHint="@color/grey" />
 
-        <EditText
+        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/signupPass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -42,13 +41,18 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
             android:background="@drawable/custom_edittext"
-            android:drawablePadding="20dp"
-            android:hint="Password"
-            android:minHeight="48dp"
             android:padding="10dp"
-            android:textColorHint="@color/grey" />
+            app:passwordToggleEnabled="true">
 
-        <EditText
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:hint="@string/passwordHint"
+                android:textColorHint="@color/grey" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/signupConfirmPass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -56,11 +60,16 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
             android:background="@drawable/custom_edittext"
-            android:drawablePadding="20dp"
-            android:hint="Retype Password"
-            android:minHeight="48dp"
             android:padding="10dp"
-            android:textColorHint="@color/grey" />
+            app:passwordToggleEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:hint="@string/confirmPasswordHint"
+                android:textColorHint="@color/grey" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:id="@+id/mainSignupBtn"
