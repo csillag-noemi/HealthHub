@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.MenuItem
 import com.example.healthhub.databinding.ActivityAppointmentsBinding
 import com.example.healthhub.databinding.ActivityLoginBinding
+import java.io.Serializable
 
 class AppointmentsActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAppointmentsBinding
@@ -14,17 +15,6 @@ class AppointmentsActivity : AppCompatActivity() {
         binding = ActivityAppointmentsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-    }
-
-    override fun onContextItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            android.R.id.home -> {
-                finish()
-                return true
-            }
-        }
-        return super.onContextItemSelected(item)
     }
 }

@@ -26,6 +26,7 @@ import androidx.core.app.ActivityCompat
 import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.MarkerOptions
+import java.io.Serializable
 import java.time.LocalDate
 import java.time.LocalTime
 
@@ -37,7 +38,7 @@ class DoctorsActivity : AppCompatActivity() {
     private lateinit var locationCallback: LocationCallback
     private lateinit var selectedDate: LocalDate
     private lateinit var selectedTime: LocalTime
-    data class Appointment(val doctor: String, val date: LocalDate, val time: LocalTime)
+    data class Appointment(val doctor: String, val date: LocalDate, val time: LocalTime) : Serializable
     private val appointments: MutableList<Appointment> = mutableListOf()
 
 
@@ -132,6 +133,10 @@ class DoctorsActivity : AppCompatActivity() {
         for (apt in appointments) {
             Log.d("Appointment", "Doctor: ${apt.doctor}, Date: ${apt.date}, Time: ${apt.time}")
         }
+
+        val intent = Intent(this, AppointmentsActivity::class.java)
+        intent.putExtra("APPOINTMENTS_LIST", ArrayList(appointments))
+        startActivity(intent)
     }
 
     private fun requestLocationPermission() {
