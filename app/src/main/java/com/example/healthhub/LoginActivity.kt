@@ -50,9 +50,9 @@ class LoginActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         //checks if a user is already signed in
-        // if(firebaseAuth.currentUser != null){
-        //val intent = Intent(this, MainActivity::class.java)
-        //startActivity(intent)
-        //}
+         if(firebaseAuth.currentUser != null){
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+         }
     }
 }
