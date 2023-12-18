@@ -14,7 +14,37 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <TextView
+            android:id="@+id/apptsText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Appointments will be displayed here."
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/apptsList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/appointmentBtn"
+        android:layout_width="265dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="107dp"
+        android:background="@drawable/button_background"
+        android:text="Show Appointments"
+        android:textAllCaps="false"
+        android:textSize="21sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="0.526" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
