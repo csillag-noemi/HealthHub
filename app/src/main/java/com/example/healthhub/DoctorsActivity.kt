@@ -21,8 +21,10 @@ import android.location.Location
 import android.os.Build
 import android.util.Log
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
+import androidx.lifecycle.ViewModelProvider
 import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.MarkerOptions
@@ -38,8 +40,8 @@ class DoctorsActivity : AppCompatActivity() {
     private lateinit var locationCallback: LocationCallback
     private lateinit var selectedDate: LocalDate
     private lateinit var selectedTime: LocalTime
-
-    private val appointments: MutableList<Appointment> = mutableListOf()
+    private lateinit var appointmentsViewModel: AppointmentsViewModel
+    private lateinit var appointmentsRepository: AppointmentsRepository
 
 
     companion object {
@@ -51,6 +53,8 @@ class DoctorsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityDoctorsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        appointmentsViewModel = ViewModelProvider(this).get(AppointmentsViewModel::class.java)
 
         selectedDate = LocalDate.now()
         selectedTime = LocalTime.now()
@@ -126,17 +130,14 @@ class DoctorsActivity : AppCompatActivity() {
         // Handle the selected date and time
         val appointment = Appointment("Dr. Smith", selectedDate.toString(), selectedTime.toString())
         // Save the appointment to the list
-        appointments.add(appointment)
+        Log.d("AppointmentsRepository", "Appointments: $appointment")
+        appointmentsViewModel.addAppointment(appointment)
 
-        // You can access the appointments list later
-        // For example, you can iterate through the list to display appointments
-        for (apt in appointments) {
-            Log.d("Appointment", "Doctor: ${apt.doctor}, Date: ${apt.date}, Time: ${apt.time}")
+        binding.viewApptsBtn.setOnClickListener {
+            val intent = Intent(this, AppointmentsActivity::class.java)
+            startActivity(intent)
         }
 
-        val intent = Intent(this, AppointmentsActivity::class.java)
-        intent.putExtra("APPOINTMENTS_LIST", ArrayList(appointments))
-        startActivity(intent)
     }
 
     private fun requestLocationPermission() {
