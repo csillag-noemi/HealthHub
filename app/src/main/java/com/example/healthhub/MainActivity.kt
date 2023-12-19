@@ -4,7 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.healthhub.databinding.ActivityMainBinding
-import com.example.healthhub.databinding.ActivitySignupBinding
 
 class MainActivity : AppCompatActivity() {
 
