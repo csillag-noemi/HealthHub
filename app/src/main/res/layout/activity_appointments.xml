@@ -6,45 +6,47 @@
     android:layout_height="match_parent"
     tools:context=".AppointmentsActivity">
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="75dp"
         android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <ImageView
+            android:layout_width="163dp"
+            android:layout_height="221dp"
+            android:layout_gravity="center"
+            android:src="@drawable/logo"
+            app:layout_constraintStart_toStartOf="parent" />
+
         <TextView
-            android:id="@+id/apptsText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Appointments will be displayed here."
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="APPOINTMENTS"
+            android:textColor="@color/teal_700"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/apptsList"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:layout_height="70dp"
+            android:layout_marginTop="25dp"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="@color/teal_700"/>
 
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/appointmentBtn"
-        android:layout_width="265dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="68dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginBottom="107dp"
-        android:background="@drawable/button_background"
-        android:text="Show Appointments"
-        android:textAllCaps="false"
-        android:textSize="21sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintVertical_bias="0.526" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
