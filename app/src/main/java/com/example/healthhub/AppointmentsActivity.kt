@@ -1,6 +1,7 @@
 package com.example.healthhub
 
 
+import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -21,6 +22,11 @@ class AppointmentsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityAppointmentsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.backBtn.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
 
         appointmentsViewModel = ViewModelProvider(this).get(AppointmentsViewModel::class.java)
 

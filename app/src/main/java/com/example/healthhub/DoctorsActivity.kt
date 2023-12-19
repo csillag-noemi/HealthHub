@@ -21,7 +21,6 @@ import android.location.Location
 import android.os.Build
 import android.util.Log
 import android.widget.Toast
-import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import androidx.lifecycle.ViewModelProvider
@@ -53,6 +52,11 @@ class DoctorsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityDoctorsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.backBtn.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
 
         appointmentsViewModel = ViewModelProvider(this).get(AppointmentsViewModel::class.java)
 
